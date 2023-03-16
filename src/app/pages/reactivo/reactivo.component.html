@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <h1 class="text-center">Formulario Reactivo</h1>
+  </div>
+  <div class="row justify-content-center">
+    <form [formGroup]="formAdd" (ngSubmit)="save()" class="w-25">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input formControlName="email" type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
+        <validator [control]="formAdd.controls['email']" name="Email"></validator>
+      </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Nombre</label>
+        <input formControlName="name" type="text" class="form-control" name="name" id="name" placeholder="Menganito">
+        <validator [control]="formAdd.controls['name']" name="Nombre"></validator>
+      </div>
+      <div class="mb-3">
+        <label for="lastname" class="form-label">Apellido</label>
+        <input formControlName="lastname" type="text" class="form-control" name="lastname" id="lastname" placeholder="Franco">
+        <validator [control]="formAdd.controls['lastname']" name="Apellido"></validator>
+      </div>
+      <div class="mb-3">
+        <label for="dni" class="form-label">DNI</label>
+        <input formControlName="dni" type="text" class="form-control" name="dni" id="dni" placeholder="6655456">
+        <validator [control]="formAdd.controls['dni']" name="DNI"></validator>
+      </div>
+      <div class="mb-3">
+        <label for="max" class="form-label">Cantidad Maxima</label>
+        <input min="0" max="100" [(ngModel)]="max" formControlName="max" type="number" class="form-control" id="max" name="max">
+        <validator [control]="formAdd.controls['max']" name="Cantidad Maxima"></validator>
+      </div>
+      <div class="mb-3">
+        <label for="now" class="form-label">Cantidad Actual</label>
+        <input min="0" [max]="max" formControlName="now" type="number" class="form-control" id="now" name="now">
+        <validator [control]="formAdd.controls['now']" name="Cantidad Actual"></validator>
+      </div>
+      <div class="mb-3">
+        <button [disabled]="formAdd.invalid" class="btn btn-success" type="submit">Guardar</button>
+      </div>
+    </form>
+  </div>
+  <div class="row justify-content-center">
+    <p>{{formAdd.value | json}}</p>
+  </div>
+</div>
