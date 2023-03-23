@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <ng-container *ngIf="!isSearch">
+      <div *ngFor="let item of response.results" class="col-3 mb-2">
+        <div class="card">
+          <p class="text-center">{{item.name}}</p>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="isSearch">
+      <div class="col-6">
+        <h1>{{pokemon.name}}</h1>
+      </div>
+      <div class="col-6">
+        <img [src]="pokemon.sprites.front_default" alt="">
+      </div>
+    </ng-container>
+  </div>
+</div>
