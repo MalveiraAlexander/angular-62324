@@ -7,6 +7,7 @@ import { AuthComponent } from './modules/auth/auth.component';
 import { HeaderComponent } from './modules/shared/components/header/header.component';
 import { MainComponent } from './modules/main/main.component';
 import { SharedModule } from './modules/shared/shared.module';
+import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,12 @@ import { SharedModule } from './modules/shared/shared.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => localStorage.getItem('access_token')
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-12 col-md-10 col-lg-6">
+      <form [formGroup]="form" (ngSubmit)="save()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Nombre</label>
+          <input type="text" formControlName="name" class="form-control" name="name" id="name" formControlName="name">
+        </div>
+        <div class="mb-3">
+          <label for="lastname" class="form-label">Apellido</label>
+          <input type="text" formControlName="lastname" class="form-control" name="lastname" id="lastname" formControlName="lastname">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo</label>
+          <input type="email" formControlName="email" class="form-control" name="email" id="email" formControlName="email">
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </form>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-12 col-md-10">
+      <table class="table caption-top">
+        <caption>Lista de usuarios</caption>
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of users">
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.person.firstName}}</td>
+            <td>{{item.person.lastName}}</td>
+            <td><a href="mailto:{{item.email}}">{{item.email}}</a></td>
+            <td>
+              <button (click)="edit(item.id)" type="button" class="btn"><i class="fa-duotone fa-pen" style="--fa-primary-color: #0db567; --fa-secondary-color: #c56cd0; --fa-secondary-opacity: 1;"></i></button>
+              <button (click)="delete(item.id)" type="button" class="btn"><i class="fa-duotone fa-trash" style="--fa-primary-color: #f50000; --fa-secondary-color: #a37575; --fa-secondary-opacity: 1;"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

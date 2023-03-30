@@ -1,0 +1,22 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "name": "Alexander",
+      "lastname": "Malveira",
+      "email": "malveiralexander@outlook.com"
+    },
+    {
+      "name": "Magali",
+      "email": "magali@calse5.net",
+      "lastname": "Garcia Muños",
+      "id": 2
+    },
+    {
+      "name": "Randy Esteben",
+      "email": "randy@calse5.net",
+      "lastname": "Correa Yengle",
+      "id": 3
+    }
+  ]
+}

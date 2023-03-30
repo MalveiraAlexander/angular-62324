@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Usuario, Email o Teléfono</label>
+          <input type="text" formControlName="username" class="form-control" name="username" id="username">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Contraseña</label>
+          <input type="password" formControlName="password" class="form-control" name="password" id="password">
+        </div>
+        <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Ingresar</button>
+      </form>
+    </div>
+  </div>
+</div>
